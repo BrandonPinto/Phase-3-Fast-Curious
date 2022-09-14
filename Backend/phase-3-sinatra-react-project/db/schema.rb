@@ -12,4 +12,25 @@
 
 ActiveRecord::Schema.define(version: 2022_09_14_151752) do
 
+  create_table "cars", force: :cascade do |t|
+    t.string "engine_name"
+    t.string "car_part"
+    t.string "wheel_name"
+    t.string "rim_name"
+    t.string "spoiler_name"
+    t.string "body_name"
+    t.integer "price"
+    t.string "imgURL"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+  end
+
+  create_table "websites", force: :cascade do |t|
+    t.integer "car_id"
+    t.integer "user_id"
+  end
+
 end
