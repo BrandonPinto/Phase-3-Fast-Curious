@@ -96,12 +96,12 @@ const Logout = () => {
         <button onClick={Logout}>Logout</button>
 </div>
 ):(
-    <LoginForm Login={Login} loginData={loginData} error={error} Link="/HomeForm"/>
+    <LoginForm Login={Login} loginData={loginData} error={error} Link="/Background"/>
 )}
 
 
     <Routes>
-        <Route path="/" element={<Background  />} />
+        <Route path="/Background" element={<Background  />} />
         <Route path="/Dealerships" element={<Dealerships />} />
         <Route path='/HomeForm' element={<HomeForm />} />
     </Routes>

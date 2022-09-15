@@ -11,7 +11,7 @@ export default function LoginForm({ Login, error, loginData }) {
             return  details.username === person.username && details.password === person.password 
         })
         if(userExists) {
-            navigate("/HomeForm")
+            navigate("Background")
         } else {
             console.log('negative')
         }
