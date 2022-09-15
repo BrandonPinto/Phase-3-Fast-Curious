@@ -1,5 +1,6 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
+  
   get "/cars" do
       car = Car.where({car_part: ["engine", "wheel", "rim", "spoiler"]})
       car.to_json
@@ -27,6 +28,7 @@ class ApplicationController < Sinatra::Base
     )
     user.to_json
   end
+
   patch "/users/:id" do
     user = User.find(params[:id])
     user.update(
@@ -40,3 +42,4 @@ class ApplicationController < Sinatra::Base
     user.to_json
   end
 end
+# car = Car.all.pluck("car_part").uniq.filter{|part| part != "body" }

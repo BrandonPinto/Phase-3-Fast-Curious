@@ -19,7 +19,6 @@ useEffect(() => {
   fetcher()
 }, []);
 
-
 const [user, setUser] = useState({username:""})
 const [error, setError] = useState ("");
 
@@ -66,11 +65,11 @@ const Logout = () => {
             <div className="navbar-start">
             <Link className="navbar-item" to="/Dealerships">Dealerships</Link>
               <div className="navbar-item has-dropdown is-hoverable">
-                <a className="navbar-link">
+                <a className="navbar-link" href='/'>
                  Car body
                 </a>
                 <div className="navbar-dropdown">
-                  <a className="navbar-item" href='' >
+                  <a className="navbar-item" href='/' >
                     toyota
                   </a>
                 </div>
@@ -80,7 +79,7 @@ const Logout = () => {
             <div className="navbar-end">
               <div className="navbar-item">
                 <div className="buttons">
-                  <a className="button is-primary, button is-black" >
+                  <a className="button is-primary, button is-black" href="lo">
                     <strong >Sign up</strong>
                   </a>
                   <a className="button is-light" href="http://localhost:3000/" >
