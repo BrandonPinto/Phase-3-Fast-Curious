@@ -1,97 +1,11 @@
 {
-    "carparts": [
+    "users": [
         {
-            "id": 1,
-            "type": "engine",
-            "name": "Supercharged 5.2-Liter V8: A Predator",
-            "price": "$25,995"
-        },
-        {
-            "id": 2,
-            "type": "engine",
-            "name": "High Output Turbocharged 6.7-Liter Inline-Six",
-            "price": "$26,995"
-        },
-        {
-            "id": 3,
-            "type": "engine",
-            "name": "SKYACTIV-G 2.0-Liter Inline-Four",
-            "price": "$29,499"
-        },
-        {
-            "id": 4,
-            "type": "spoiler",
-            "name": "Wing spoiler",
-            "price": "$399"
-        },
-        {
-            "id": 5,
-            "type": "spoiler",
-            "name": "Duck-Tail spoiler",
-            "price": "$499"
-        },
-        {
-            "id": 6,
-            "type": "spoiler",
-            "name": "Pedestal spoiler",
-            "price": "$285"
-        },
-        {
-            "id": 7,
-            "type": "tire",
-            "name": "20-inch Tire-set",
-            "price": "$899"
-        },
-        {
-            "id": 8,
-            "type": "tire",
-            "name": "21-inch Tire-set",
-            "price": "$1,099"
-        },
-        {
-            "id": 9,
-            "type": "tire",
-            "name": "32-inch Tire-set",
-            "price": "$1,399"
-        },
-        {
-            "id": 10,
-            "type": "rims",
-            "name": "Anovia Elder",
-            "price": "$999"
-        },
-        {
-            "id": 11,
-            "type": "rims",
-            "name": "Work Emotion D9R",
-            "price": "$1,099"
-        },
-        {
-            "id": 12,
-            "type": "rims",
-            "name": "Enkei RPF1",
-            "price": "$899"
-        },
-        {
-            "id": 13,
-            "type": "car",
-            "name": "G86 Body",
-            "price": "$29,999",
-            "imgURL": "https://ic.carid.com/duraflex/items/112646-oncar-01_6.jpg"
-        },
-        {
-            "id": 14,
-            "type": "car",
-            "name": "Supra MK:V",
-            "price": "$59,999",
-            "imgURL": "https://cdn-ds.com/blogs-media/sites/232/2019/04/23151839/2020-Toyota-Supra-Renaissance-Red-2.0_o.jpg"
-        },
-        {
-            "id": 15,
-            "type": "car",
-            "name": "Camry",
-            "price": "$12,999",
-            "imgURL": "https://www.kindpng.com/picc/m/348-3482956_toyota-camry-toyota-camry-2019-singapore-price-hd.png"
+          "id": 1,
+          "name": "bob",
+          "username": "abc123",
+          "password": "abc123",
+          "cart": ""
         }
-        ]
+      ]
     }

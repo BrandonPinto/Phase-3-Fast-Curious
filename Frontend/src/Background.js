@@ -40,7 +40,6 @@ function Background() {
     }
   }, [selected])
 
-
   return (
 
     <div>
