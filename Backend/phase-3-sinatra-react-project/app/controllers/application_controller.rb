@@ -1,9 +1,42 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
-  
-  # Add your routes here
-  get "../../frontend/src" do
-    { message: "Good luck with your project!" }.to_json
+  get "/cars" do
+      car = Car.where({car_part: ["engine", "wheel", "rim", "spoiler"]})
+      car.to_json
   end
-
+  get "/cars/:part" do
+      car = Car.where({car_part: params[:part]})
+      car.to_json
+  end
+  get "/users" do
+    user = User.all
+    user.to_json
+  end
+  get "/websites" do
+    website = Website.all
+    website.to_json
+  end
+  get '/cars/:id' do
+    car = Car.find(params[:id])
+    car.to_json
+  end
+  post "/users" do
+    user = User.create(
+      username: params[:username],
+      password: params[:password]
+    )
+    user.to_json
+  end
+  patch "/users/:id" do
+    user = User.find(params[:id])
+    user.update(
+      password: params[:password]
+    )
+    user.to_json
+  end
+  delete "/users/:id" do
+    user = User.find(params[:id])
+    user.destroy
+    user.to_json
+  end
 end
