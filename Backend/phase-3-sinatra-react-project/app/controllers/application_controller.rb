@@ -28,7 +28,6 @@ class ApplicationController < Sinatra::Base
     )
     user.to_json
   end
-
   patch "/users/:id" do
     user = User.find(params[:id])
     user.update(
