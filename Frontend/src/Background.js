@@ -42,10 +42,10 @@ function Background() {
 
   return (
 
-    <div>
-      <div>
+    <div class="dropdown is-active">
+      <div class="dropdown-trigger">
         <section className="section" style={{ display: '$menu-list-border-left' }}>
-          <h1 className="menu-label">General</h1>
+          <h1 className="menu-label">Parts</h1>
           <ul className="menu-list">
             <div>
               <select onChange={handleChange}>

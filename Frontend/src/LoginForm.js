@@ -13,14 +13,17 @@ export default function LoginForm({ Login, error, loginData }) {
         if(userExists) {
             navigate("Background")
         } else {
-            console.log('negative')
+           window.alert('Did you forget?')
         }
     }
 
 
     return (
+
+        
         <form onSubmit={submitHandler}>
-            <div className='form-inner'>
+            <div class="container is-max-widescreen">
+                <div class="notification is-danger">
                 <h2> Log in</h2>
                 {(error != "") ? (<div className="error"> {error} </div>) : ""}
                 {/* <div className='form-group'>
@@ -29,14 +32,17 @@ export default function LoginForm({ Login, error, loginData }) {
     </div> */}
                 <div className='form-group'>
                     <label htmlFor="username">username: </label>
-                    <input type="username" name="username" id="username" onChange={e => setDetails({ ...details, username: e.target.value })} value={details.username} />
+                    <input class="input is-danger is-rounded" type="username" name="username" id="username" onChange={e => setDetails({ ...details, username: e.target.value })} value={details.username} />
                 </div>
                 <div className='form-group'>
                     <label htmlFor="password">password: </label>
-                    <input type="password" name="password" id="password" onChange={e => setDetails({ ...details, password: e.target.value })} value={details.password} />
+                    <input class="input is-danger is-rounded" type="password" name="password" id="password" onChange={e => setDetails({ ...details, password: e.target.value })} value={details.password} />
                 </div>
-                <input type="submit" value="Login" />
+                <input class="button is-danger is-inverted is-rounded"type="submit" value="Login" />
+                </div>
             </div>
         </form>
+
+        
     );
 }
