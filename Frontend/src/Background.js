@@ -45,7 +45,7 @@ function Background() {
     <div>
       <div>
         <section className="section" style={{ display: '$menu-list-border-left' }}>
-          <h1 className="menu-label">General</h1>
+          <h1 className="menu-label">Parts</h1>
           <ul className="menu-list">
             <div>
               <select onChange={handleChange}>
@@ -54,7 +54,7 @@ function Background() {
                 })}
               </select>
             </div>
-            <div>
+            <div style={{display: "inline-block"}}>
            {partArr.map(part=>(
               <ul key={part.id} className="menu-label">
                 <li >{part.carpart_name}</li>

@@ -51,7 +51,7 @@ const Logout = () => {
   <nav className="navbar is-danger" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
             <a className="navbar-item" href="http://localhost:3000/">
-              <Link className="navbar-item"to="/"><img src=" https://i.postimg.cc/cHkvydkT/Gay-Pride-Flag-svg.webp" width="112" height="28"/></Link>
+              <Link className="navbar-item"to="/"><img src=" https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Flag_of_the_Russian_Empire_%28black-yellow-white%29.svg/2560px-Flag_of_the_Russian_Empire_%28black-yellow-white%29.svg.png" width="112" height="28"/></Link>
             </a>
 
             <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -82,14 +82,14 @@ const Logout = () => {
                   <a className="button is-primary, button is-black" href="lo">
                     <strong >Sign up</strong>
                   </a>
-                  <a className="button is-light" href="http://localhost:3000/" >
-                    Log in
-                  </a>
+                  
+                  < Link className="button is-light" href="http://localhost:3000/" to="/LoginForm" >Log-in </Link>
+                  
                 </div>
               </div>
             </div>
   </nav>
-
+<br></br>
   {(user.username != "") ? (
     <div className='welcome'>
         <h2> Welcome, <span>{user.name}</span></h2>
@@ -103,7 +103,7 @@ const Logout = () => {
     <Routes>
         <Route path="/Background" element={<Background  />} />
         <Route path="/Dealerships" element={<Dealerships />} />
-        <Route path='/HomeForm' element={<HomeForm />} />
+        <Route path='/' element={<HomeForm />} />
     </Routes>
 </div>  
 );
