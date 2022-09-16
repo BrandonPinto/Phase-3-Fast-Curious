@@ -5,6 +5,15 @@ class ApplicationController < Sinatra::Base
       car = Car.where({car_part: ["engine", "wheel", "rim", "spoiler"]})
       car.to_json
   end
+  post "/cars" do
+    car = Car.create(
+      carpart_name: params[:carpart_name],
+      car_part: params[:car_part],
+      price: params[:price],
+      imgURL: params[:imgURL]
+    )
+    car.to_json
+  end
   get "/cars/:part" do
       car = Car.where({car_part: params[:part]})
       car.to_json
