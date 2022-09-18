@@ -44,7 +44,7 @@ function Background() {
 
     <div>
       <div>
-        <section className="section" style={{ display: '$menu-list-border-left' }}>
+        <section className="section" style={{ display: '$menu-list-border-right' }}>
           <h1 className="menu-label">Parts</h1>
           <ul className="menu-list">
             <div>
@@ -54,8 +54,24 @@ function Background() {
                 })}
               </select>
             </div>
-            <div style={{display: "inline-block"}}>
+            <div style={{display: "inline-flex"}}>
            {partArr.map(part=>(
+              <ul key={part.id} className="menu-label">
+                <li >{part.carpart_name}</li>
+                <li >{`$${part.price}`}</li>
+                <img alt='car part' src={part.imgURL} />
+              </ul>
+           ))}
+            </div>
+            <div>
+            <select onChange={handleChange}>
+                {filter.map((part,i) => {
+                    return <option key={i} value={part.body}>{part.body}</option>
+                })}
+              </select>
+            </div>
+            <div style={{display: "inline-flex"}}>
+           {partArr.map(part => (
               <ul key={part.id} className="menu-label">
                 <li >{part.carpart_name}</li>
                 <li >{`$${part.price}`}</li>
