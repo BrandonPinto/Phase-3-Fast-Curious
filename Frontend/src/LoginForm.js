@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import HomeForm from './HomeForm';
-export default function LoginForm({ Login, error, loginData }) {
+import SignForm from './SignForm';
+export default function LoginForm({ error, currentUser, setCurrentUser }) {
+
     const navigate = useNavigate()
+
     const [details, setDetails] = useState({ username: "", password: "" })
+    const [passwordForm, setPasswordForm] = useState({
+        currentPassword: "",
+        password: ""
+    })
 
     const submitHandler = e => {
         e.preventDefault();
