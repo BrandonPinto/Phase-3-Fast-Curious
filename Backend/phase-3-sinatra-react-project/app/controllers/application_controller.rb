@@ -5,6 +5,10 @@ class ApplicationController < Sinatra::Base
       car = Car.where({car_part: ["engine", "wheel", "rim", "spoiler"]})
       car.to_json
   end
+  get "/cars/body" do
+    car = Car.where({car_part: ["body"]})
+    car.to_json
+  end
   post "/cars" do
     car = Car.create(
       carpart_name: params[:carpart_name],
@@ -31,13 +35,30 @@ class ApplicationController < Sinatra::Base
     car.to_json
   end
   post "/users" do
-    user = User.create(
-      username: params[:username],
-      password: params[:password]
-    )
+    #validate user doesnt exist
+    if !User.all.exists?(username: params[:username])
+      user = User.create(
+        username: params[:username],
+        password: params[:password]
+      )
+    else
+      "Username exists"
+    end
     user.to_json
   end
-  patch "/users/:id" do
+  post '/users/login' do
+    if User.all.exists?(username: params[:username])
+        if User.find_by_username(params[:username]).password == params[:password]
+            user = User.find_by_username(params[:username])
+            user.to_json
+        else
+            "Incorrect Password"
+        end
+    else
+        "Incorrect Username"
+    end
+end
+  patch "/users/password/:id" do
     user = User.find(params[:id])
     user.update(
       password: params[:password]
@@ -50,4 +71,3 @@ class ApplicationController < Sinatra::Base
     user.to_json
   end
 end
-# car = Car.all.pluck("car_part").uniq.filter{|part| part != "body" }

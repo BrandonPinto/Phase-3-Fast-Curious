@@ -1,23 +1,49 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import SignForm from './SignForm';
+export default function LoginForm({ error, currentUser, setCurrentUser }) {
 
-export default function LoginForm({ error, loginData, currentUser }) {
     const navigate = useNavigate()
-    const [details, setDetails] = useState({id:"", username: "", password: ""})
+
+    const [details, setDetails] = useState({ username: "", password: "" })
+    const [passwordForm, setPasswordForm] = useState({
+        currentPassword: "",
+        password: ""
+    })
 
     const submitHandler = e => {
-        e.preventDefault();
-        const userExists = loginData.find((person) => {
-            return details.username === person.username && details.password === person.password
-        })
-        if (userExists) {
-            console.log(currentUser.push(details.id))
-            navigate("/Background")
-        } else {
-            window.alert('Did you forget?')
+        console.log(currentUser)
+        e.preventDefault()
+
+        fetch("http://localhost:9292/users/login", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(details),
+        }).then(res => res.json())
+            .then((data) => setCurrentUser(data))
+            .then(()=> { 
+                if(details.username !== currentUser.username && details.password !== currentUser.password) {
+                    window.alert('One or more fields are incorrect')
+                } else {
+                    navigate('/Background')
+            }})
+        }
+
+    const passwordHandler = e => {
+        if (currentUser.password === passwordForm.currentPassword) {
+            e.preventDefault()
+            fetch(`http://localhost:9292/users/password/${currentUser.id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(passwordForm)
+            })
+                .then((res) => res.json())
+                .then(data => setPasswordForm(data))
         }
     }
+
 
     return (
         <>
@@ -27,7 +53,7 @@ export default function LoginForm({ error, loginData, currentUser }) {
                     {(error !== "") ? (<div className="error"> {error} </div>) : ""}
                     <div className='form-group'>
                         <label htmlFor="username">username: </label>
-                        <input type="username" name="username" onChange={e => setDetails({ ...details, username: e.target.value})} value={details.username} />
+                        <input type="username" name="username" onChange={e => setDetails({ ...details, username: e.target.value })} value={details.username} />
                     </div>
                     <div className='form-group'>
                         <label htmlFor="password">password: </label>
@@ -37,7 +63,7 @@ export default function LoginForm({ error, loginData, currentUser }) {
                 </div>
 
             </form>
-            <div><SignForm /></div>
+            <div><SignForm passwordForm={passwordForm} setPasswordForm={setPasswordForm} passwordHandler={passwordHandler} /></div>
         </>
     );
 }
