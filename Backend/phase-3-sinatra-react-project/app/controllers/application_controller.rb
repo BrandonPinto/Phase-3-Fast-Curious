@@ -2,12 +2,9 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   get "/cars" do
-      car = Car.where({car_part: ["engine", "wheel", "rim", "spoiler", "body"]})
+      car = Car.where({car_part: ["engine", "wheel", "rim", "spoiler"]})
       car.to_json
   end
-<<<<<<< HEAD
-  
-=======
   get "/cars/body" do
     car = Car.where({car_part: ["body"]})
     car.to_json
@@ -21,7 +18,6 @@ class ApplicationController < Sinatra::Base
     )
     car.to_json
   end
->>>>>>> 523f1d988be365e371cc6d9f0c7679beea9f0308
   get "/cars/:part" do
       car = Car.where({car_part: params[:part]})
       car.to_json

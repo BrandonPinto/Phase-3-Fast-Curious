@@ -53,13 +53,6 @@ function App() {
 
 
   return (
-    
-<div>
-  <nav className="navbar is-danger" role="navigation" aria-label="main navigation">
-          <div className="navbar-brand">
-            <a className="navbar-item" href="http://localhost:3000/">
-              <Link className="navbar-item"to="/"><img src="https://i.postimg.cc/ydDXw9Zp/Screen-Shot-2022-09-16-at-1-13-04-PM.png" width="112" height="28"/></Link>
-            </a>
 
     <div>
       <nav className="navbar is-danger" role="navigation" aria-label="main navigation">
@@ -91,39 +84,25 @@ function App() {
               </a>
             </div>
           </div>
-            <div className="navbar-end">
-              <div className="navbar-item">
-                <div className="buttons">
-                  <a className="button is-primary, button is-black" href="lo">
-                    <strong >Sign up</strong>
-                  </a>
-                  
-                  < Link className="button is-light" href="http://localhost:3000/" to="/LoginForm" >Log-in </Link>
-                  
-                </div>
-              </div>
-            </div>
-  </nav>
+        </div>
+      </nav>
 
-
-
-    <Routes>
-        <Route path="/Background" element={<Background  />} />
+    
+      <Routes>
+        <Route path="/" element={<HomeForm />} />
+        <Route path="/Background" element={<Background />} />
         <Route path="/Dealerships" element={<Dealerships />} />
-        <Route path='/' element={<HomeForm />} />
-    </Routes>
-
-  {(user.username != "") ? (
-    <div className='welcome'>
-        <h2> Welcome, <span>{user.name}</span></h2>
-        <button onClick={Logout}>Logout</button>
-</div>
-):(
-    <LoginForm Login={Login} loginData={loginData} error={error} Link="/Background"/>
-)}
-
-</div>  
-);
+      </Routes>
+      {(user.username !== "") ? (
+        <div className='welcome'>
+          <h2> Welcome, <span>{user.username}</span></h2>
+          <button onClick={Logout}>Logout</button>
+        </div>
+      ) : (
+        <LoginForm setCurrentUser={setCurrentUser} currentUser={currentUser} error={error} Link="/Background" />
+      )}
+    </div>
+  );
 }
 
 export default App;
